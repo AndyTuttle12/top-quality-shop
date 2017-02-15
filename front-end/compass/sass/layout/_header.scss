@@ -3,3 +3,43 @@
 // Global Header styles
 // -------------------------------
 
+
+
+.App-header {
+	display: flex;
+	align-items: center;
+	background-color: #222;
+	height: 80px;
+	padding: 10px;
+	color: white;
+	.App-logo {
+		height: 80px;
+	}
+	.search-area{
+		margin: 10px;
+		.search-bar{
+			height: 40px;
+			width: 500px;
+			line-height: 40px;
+			font-size: 20px;
+		}
+		.categories-dropdown{
+			height: 45px;
+			line-height: 45px;
+			font-size: 20px;
+		}
+		.search-button{
+			height: 30px;
+			width: 90px;
+			padding: 20px 30px;
+			line-height: 40px;
+			font-size: 28px;
+		}
+	}
+}
+
+.App-intro {
+	font-size: large;
+}
+
+

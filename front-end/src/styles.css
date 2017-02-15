@@ -1,1 +1,59 @@
-@import url("https://fonts.googleapis.com/css");
+/* line 6, ../compass/sass/layout/_layout.scss */
+html {
+  color: #000;
+}
+/* line 8, ../compass/sass/layout/_layout.scss */
+html .App {
+  color: #000;
+}
+/* line 10, ../compass/sass/layout/_layout.scss */
+html .App .App-body {
+  color: #000;
+  height: 300px;
+  width: 100vw;
+  background-color: #ddd;
+}
+
+/* line 8, ../compass/sass/layout/_header.scss */
+.App-header {
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  height: 80px;
+  padding: 10px;
+  color: white;
+}
+/* line 15, ../compass/sass/layout/_header.scss */
+.App-header .App-logo {
+  height: 80px;
+}
+/* line 18, ../compass/sass/layout/_header.scss */
+.App-header .search-area {
+  margin: 10px;
+}
+/* line 20, ../compass/sass/layout/_header.scss */
+.App-header .search-area .search-bar {
+  height: 40px;
+  width: 500px;
+  line-height: 40px;
+  font-size: 20px;
+}
+/* line 26, ../compass/sass/layout/_header.scss */
+.App-header .search-area .categories-dropdown {
+  height: 45px;
+  line-height: 45px;
+  font-size: 20px;
+}
+/* line 31, ../compass/sass/layout/_header.scss */
+.App-header .search-area .search-button {
+  height: 30px;
+  width: 90px;
+  padding: 20px 30px;
+  line-height: 40px;
+  font-size: 28px;
+}
+
+/* line 41, ../compass/sass/layout/_header.scss */
+.App-intro {
+  font-size: large;
+}

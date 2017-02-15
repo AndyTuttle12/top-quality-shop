@@ -4,6 +4,15 @@
 // -------------------------------
 
 html{
-	
+	color:#000;
+	.App{
+		color: #000;
+		.App-body{
+			color: #000;
+			height: 300px;
+			width: 100vw;
+			background-color: #ddd;
+		}
+	}
 }
 
