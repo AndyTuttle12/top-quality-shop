@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import './styles.css';
-import SignIn from './containers/Login';
-import Register from './containers/Register';
+// import SignIn from './containers/Login';
+// import Register from './containers/Register';
 
 class App extends Component {
 	render() {
 		return (
 			<div className="App">
 				<div className="App-header">
-					<img src={'/tqs.png'} className="App-logo" alt="logo" />
+					<Link to="/"><img src={'/tqs.png'} className="App-logo" alt="logo" /></Link>
 					<h4>( Bid on great new and used electronics. )</h4>
 					<form className="search-area">
-						<input className="search-bar" placeholder="Search..."/>
-						<select className="categories-dropdown" label="Categories">Categories
+						<input className="search-bar" placeholder="Search..." name="term"/>
+						<select className="categories-dropdown" defaultValue="" name="Categories">Categories
+							<option className="dropdown-item" value="">Categories</option>
 							<optgroup className="dropdown-option" label="Home Audio">Home Audio
 								<option className="dropdown-item" value="Speakers">Speakers</option>
 								<option className="dropdown-item" value="Amplifiers">Amplifiers</option>
@@ -49,10 +50,19 @@ class App extends Component {
 								<option className="dropdown-item" value="Video Servers/Storage">Video Servers/Storage</option>
 							</optgroup>
 						</select>
-						<input className="search-button" type="submit" value="Search"/>
+						<button className="search-button" type="submit" value="Search">Search</button>
 					</form>
-					<Link to="/login">Sign In</Link> or 
-					<Link to="/register">Register</Link>
+					<div className="header-right">
+						<Link to="/login">Login</Link> or
+						<Link to="/register"> Register</Link>
+					</div>
+				</div>
+				<div className="App-header-lower">
+					<Link to="/">Home Audio</Link>
+					<Link to="/">Home Video</Link>
+					<Link to="/">Portable Audio</Link>
+					<Link to="/">Computer Audio</Link>
+					<Link to="/">Control</Link>
 				</div>
 				<div className="App-body">
 					{this.props.children}

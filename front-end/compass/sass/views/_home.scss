@@ -3,3 +3,23 @@
 // Home View Styling
 // -------------------------------
 
+.home-page{
+	text-align: center;
+	padding-top:20px;
+	.card-area{
+		display:flex;
+		align-items: space-between;
+		background-color:transparent;
+		.auction-card{
+			width: 80vw;
+			height: auto;
+			margin:30px auto;
+			background-color:transparent;
+			.product-wrapper{
+				margin: 20px 0;
+				background-color: #fff;
+				padding: 20px;
+			}
+		}
+	}
+}

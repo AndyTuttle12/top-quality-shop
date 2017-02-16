@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import { browserHistory} from 'react-router';
 import RegisterAction from '../actions/RegisterAction';
 
 class Register extends Component{
@@ -79,7 +80,8 @@ class Register extends Component{
 		if(this.props.registerResponse.msg === "userNameTaken"){
 			var message = "User Name is taken";
 		}else if(this.props.registerResponse.msg === "userInserted"){
-			message = "User Added"
+			message = "User Added. Please Log in to continue."
+			browserHistory.push('/login');
 		}else{
 			message = "";
 		}

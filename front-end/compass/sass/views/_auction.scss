@@ -1,0 +1,36 @@
+.auction-title{
+
+}
+.auction-content{
+	display: flex;
+
+	.auction-img{
+		margin:0 auto;
+		width:35%;
+		img{
+			width: 100%;
+		}
+	}
+	.auction-details{
+		margin:auto;
+		width:65%;
+		.description{
+			width: 100%;
+			padding:20px;
+		}
+		.price-info{
+			width: 100%;
+			display: flex;
+			align-items: center;
+			.current-bid{
+				margin: auto;
+			}
+			.starting-bid{
+				margin: auto;
+			}
+			.buy-now{
+				margin: auto;
+			}
+		}
+	}
+}

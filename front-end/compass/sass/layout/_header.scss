@@ -6,6 +6,8 @@
 
 
 .App-header {
+	width: 100vw;
+	float: left;
 	display: flex;
 	align-items: center;
 	background-color: #222;
@@ -18,28 +20,68 @@
 	.search-area{
 		margin: 10px;
 		.search-bar{
-			height: 40px;
+			height: 37px;
 			width: 500px;
+			margin:0 4px;
 			line-height: 40px;
 			font-size: 20px;
+			border:none;
+			border-radius:5px;
 		}
 		.categories-dropdown{
-			height: 45px;
+			height: 40px;
 			line-height: 45px;
 			font-size: 20px;
 		}
-		.search-button{
-			height: 30px;
+		button.search-button{
+			height: 40px;
 			width: 90px;
-			padding: 20px 30px;
-			line-height: 40px;
-			font-size: 28px;
+			margin:0px 5px;
+			padding: 0px 10px;
+			line-height: 35px;
+			font-size: 20px;
+			border-radius: 5px;
+			border:none;
+			background-color:#fff;
+			&:hover, &:active{
+				color:#fff;
+				background-color:slategray;
+			}
+		}
+	}
+	.header-right{
+		color: #fff;
+		float: right;
+		margin: auto;
+		word-spacing: 10px;
+		a{
+			color:#fff;
+			text-decoration: none;
+			&:hover, &:active{
+				text-decoration: underline
+			}
 		}
 	}
 }
 
-.App-intro {
-	font-size: large;
+.App-header-lower{
+	height:30px;
+	width:100vw;
+	background-color:#444;
+	color:#fff;
+	display: flex;
+	align-items: center;
+	a{
+		color: #fff;
+		margin:auto;
+		text-decoration: none;
+		padding: 3px 8px;
+		&:hover, &:active{
+			background-color: #eee;
+			border-radius: 5px;
+			color: #000;
+		}
+	}
 }
 
 

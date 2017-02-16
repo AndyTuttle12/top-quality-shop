@@ -21,7 +21,7 @@ ReactDOM.render(
 		        	<IndexRoute component={Home}/>
 		        	<Route path="/login" component={Login}/>
 		        	<Route path="/register" component={Register}/>
-		        	<Route path="/search/:term" component={Search}/>
+		        	<Route path="/search/:term?category=:category" component={Search}/>
 		        </Route>
 		</Router>
 	</Provider>,

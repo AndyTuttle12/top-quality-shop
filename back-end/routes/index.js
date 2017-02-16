@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var config = require('../config/config.js');
+var randToken = require('rand-token');
 var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: config.host,
@@ -11,14 +12,18 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+var bcrypt = require('bcrypt-nodejs');
+
+// var hashedPassword = bcrypt.hashSync("x");
+// var checkHash = bcrypt.compareSync("x", hashedPassword);
 
 
 /* GET top 3 auctions page. */
-router.get('/getHomeAuctions', function(req, res, next) {
+router.get('/getHomeAuctions', (req, res, next)=>{
   var auctionsQuery = "SELECT * FROM auctions " + 
   "INNER JOIN images ON images.auction_id = auctions.id " +
   "LIMIT 10";
-  connection.query(auctionsQuery, (error, results, fields) => {
+  connection.query(auctionsQuery, (error, results, fields)=>{
 		if (error) throw error;
 		res.json(results);
 	})
@@ -33,7 +38,7 @@ router.post('/register', (req, res, next)=>{
 		if(results.length===0){
 			var insertUserQuery = "INSERT INTO users (email, real_name, username, password) VALUES " +
 				"(?, ?, ?, ?)";
-			connection.query(insertUserQuery, [req.body.email, req.body.name, req.body.username, req.body.password],(error, results, fields)=>{
+			connection.query(insertUserQuery, [req.body.email, req.body.name, req.body.username, bcrypt.hashSync(req.body.password)],(error, results, fields)=>{
 				res.json({msg:"userInserted"});
 			});
 		}else{
@@ -43,5 +48,38 @@ router.post('/register', (req, res, next)=>{
 		}
 	})
 });
+
+router.post('/login', (req, res, next)=>{
+	var username = req.body.username;
+	var password = req.body.password;
+	var findUserQuery = "SELECT * FROM users WHERE username = ?";
+	connection.query(findUserQuery, [req.body.username], (error, results, fields)=>{
+		if(error)throw error;
+		if(results.length === 0){
+			res.json({
+				msg: "badUsername"
+			});
+		}else{
+			checkHash = bcrypt.compareSync(password, results[0].password);
+			console.log(checkHash);
+			if(checkHash === false){
+				res.json({
+					msg: "badPassword"
+				})
+			}else{
+				var token = randToken.uid(40);
+				insertToken = "INSERT INTO users (token, token_exp) VALUES " +
+					"(?, NOW())";
+				connection.query(insertToken, [token], (error, results)=>{
+					console.log(token);
+					res.json({
+						msg: "Login Successful",
+						token: token
+					})
+				});
+			}
+		}
+	})
+})
 
 module.exports = router;
