@@ -71,19 +71,20 @@ html .App .App-body {
   color: #fff;
   float: right;
   margin: auto;
-  word-spacing: 10px;
 }
-/* line 57, ../compass/sass/layout/_header.scss */
+/* line 56, ../compass/sass/layout/_header.scss */
 .App-header .header-right a {
   color: #fff;
   text-decoration: none;
+  word-spacing: 20px;
+  margin: 0 10px;
 }
-/* line 60, ../compass/sass/layout/_header.scss */
+/* line 61, ../compass/sass/layout/_header.scss */
 .App-header .header-right a:hover, .App-header .header-right a:active {
   text-decoration: underline;
 }
 
-/* line 67, ../compass/sass/layout/_header.scss */
+/* line 68, ../compass/sass/layout/_header.scss */
 .App-header-lower {
   height: 30px;
   width: 100vw;
@@ -92,14 +93,14 @@ html .App .App-body {
   display: flex;
   align-items: center;
 }
-/* line 74, ../compass/sass/layout/_header.scss */
+/* line 75, ../compass/sass/layout/_header.scss */
 .App-header-lower a {
   color: #fff;
   margin: auto;
   text-decoration: none;
   padding: 3px 8px;
 }
-/* line 79, ../compass/sass/layout/_header.scss */
+/* line 80, ../compass/sass/layout/_header.scss */
 .App-header-lower a:hover, .App-header-lower a:active {
   background-color: #eee;
   border-radius: 5px;
@@ -151,24 +152,25 @@ html .App .App-body {
 }
 /* line 17, ../compass/sass/views/_auction.scss */
 .auction-content .auction-details .description {
-  width: 100%;
-  padding: 20px;
+  width: auto;
+  padding-left: 20px;
+  text-align: left;
 }
-/* line 21, ../compass/sass/views/_auction.scss */
+/* line 22, ../compass/sass/views/_auction.scss */
 .auction-content .auction-details .price-info {
   width: 100%;
   display: flex;
   align-items: center;
 }
-/* line 25, ../compass/sass/views/_auction.scss */
+/* line 26, ../compass/sass/views/_auction.scss */
 .auction-content .auction-details .price-info .current-bid {
   margin: auto;
 }
-/* line 28, ../compass/sass/views/_auction.scss */
+/* line 29, ../compass/sass/views/_auction.scss */
 .auction-content .auction-details .price-info .starting-bid {
   margin: auto;
 }
-/* line 31, ../compass/sass/views/_auction.scss */
+/* line 32, ../compass/sass/views/_auction.scss */
 .auction-content .auction-details .price-info .buy-now {
   margin: auto;
 }

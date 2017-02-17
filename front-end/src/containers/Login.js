@@ -7,9 +7,7 @@ import LoginAction from '../actions/LoginAction';
 class Login extends Component{
 	constructor(props) {
 		super(props);
-		this.state = {
-			loginResponse: ''
-		}
+		
 		this.loginSubmit = this.loginSubmit.bind(this);
 	}
 

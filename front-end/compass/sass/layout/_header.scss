@@ -53,10 +53,11 @@
 		color: #fff;
 		float: right;
 		margin: auto;
-		word-spacing: 10px;
 		a{
 			color:#fff;
 			text-decoration: none;
+			word-spacing: 20px;
+			margin:0 10px;
 			&:hover, &:active{
 				text-decoration: underline
 			}

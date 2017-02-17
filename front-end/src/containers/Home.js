@@ -6,7 +6,6 @@ import Auction from '../Auction';
 
 class Home extends Component{
 
-
 	componentDidMount() {
 		this.props.getHomeData();
 	}

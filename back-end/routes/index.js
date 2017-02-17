@@ -67,14 +67,16 @@ router.post('/login', (req, res, next)=>{
 					msg: "badPassword"
 				})
 			}else{
+				var user = req.body.username;
 				var token = randToken.uid(40);
-				insertToken = "INSERT INTO users (token, token_exp) VALUES " +
-					"(?, NOW())";
-				connection.query(insertToken, [token], (error, results)=>{
+				insertToken = "UPDATE users SET token=?, token_exp=DATE_ADD(NOW(), INTERVAL 1 HOUR) "+
+                    "WHERE username=?";
+                connection.query(insertToken,[token, username], (error, results)=>{
 					console.log(token);
 					res.json({
 						msg: "Login Successful",
-						token: token
+						token: token,
+						username: user
 					})
 				});
 			}
