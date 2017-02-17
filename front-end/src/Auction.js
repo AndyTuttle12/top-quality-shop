@@ -1,4 +1,5 @@
 import React, {Component } from 'react';
+import {Link} from 'react-router';
 
 class Auction extends Component{
 
@@ -6,7 +7,7 @@ class Auction extends Component{
 		var auctionItem = this.props.item;
 		return(
 			<div className="product-wrapper">
-				<h1 className="auction-title">{auctionItem.title}</h1>
+				<Link to="/auction/1" ><h1 className="auction-title">{auctionItem.title}</h1></Link>
 				<div className="auction-content">
 					<div className="auction-img">
 						<img src={auctionItem.url} alt="Auction Item"/>

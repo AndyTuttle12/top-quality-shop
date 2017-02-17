@@ -38,6 +38,38 @@ router.get('/getAuctionItem/:auctionId', (req, res, next)=>{
 	});
 });
 
+router.post('/submitBid', (req, res, next)=>{
+	console.log(req.body)
+	var selectQuery = "SELECT starting_bid, current_bid FROM auctions WHERE id = ?";
+	connection.query(selectQuery, [req.body.auctionItem], (error, results, fields)=>{
+		if((req.body.bidAmount < results[0].current_bid)
+			|| (req.body.bidAmount < results[0].starting_bid)){
+			res.json({msg: "bidTooLow"})
+		}else{
+			res.json({msg: "Bid High Enough"})
+			var getUserId = "SELECT id FROM users WHERE token = ?";
+			connection.query(getUserId, [req.body.userToken],(error2, results2, fields2)=>{
+				if(results2.length > 0){
+					var updateAuctionsQuery = "UPDATE auctions SET high_bidder_id=?, current_bid_id=?" +
+						"WHERE id = ?";
+						connection.query(updateAuctionsQuery, [results2[0].id,req.body.bidAmount, req.body.auctionItem],(error3, results3, fields3)=>{
+							if(error)throw error;
+							res.json({
+								msg: "bidAccepeted",
+								newBid: req.body.bidAmount
+							})
+						});
+				}else{
+					res.json({
+						msg: 'badToken'
+					})
+				}
+			});
+			
+		}
+	});
+});
+
 router.post('/register', (req, res, next)=>{
 	console.log(req.body);
 	checkDupeUserQuery = "SELECT * FROM users WHERE username = ?";

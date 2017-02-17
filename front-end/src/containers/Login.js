@@ -7,7 +7,9 @@ import LoginAction from '../actions/LoginAction';
 class Login extends Component{
 	constructor(props) {
 		super(props);
-		
+		this.state = {
+			message: ''
+		}
 		this.loginSubmit = this.loginSubmit.bind(this);
 	}
 
@@ -21,22 +23,31 @@ class Login extends Component{
 		});
 	}
 
-	render(){
+	componentDidUpdate(prevProps, prevState) {
 		if(this.props.loginResponse.msg === "badUsername"){
-			var message = "Please enter the correct username.";
+			this.setState({
+				message: "Please enter the correct username."
+			});
 		}else if(this.props.loginResponse.msg === "badPassword"){
-			message = "Please check your password and try again."
+			this.setState({
+				message: "Please check your password and try again."
+			});
 		}else if(this.props.loginResponse.msg === "Login Successful"){
-			message = "Welcome!"
 			browserHistory.push('/');
 		}else{
-			message = "";
+			this.setState({
+				message:""
+			})
 		}
+	}
+
+	render(){
+		
 		return(
 			<div className="login-area">
 				<h1>Login</h1>
 				<form onSubmit={this.loginSubmit}>
-					<h3 className='success'>{message}</h3>
+					<h3 className='success'>{this.state.message}</h3>
 					<input id="login-username" type="text" className="login-input form-control" name="username" placeholder="User Name" />
 					<br/>                                     
 					<input id="login-password" type="password" className="login-input form-control" name="password" placeholder="Password" />
