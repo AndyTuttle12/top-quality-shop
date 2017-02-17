@@ -10,6 +10,7 @@ import Home from './containers/Home';
 import Login from './containers/Login';
 import Register from './containers/Register';
 import Search from './containers/Search';
+import AuctionItem from './containers/AuctionItem';
 import './index.css';
 
 const theStoreWithMiddleware = applyMiddleware(reduxPromise)(createStore)(reducers);
@@ -21,6 +22,7 @@ ReactDOM.render(
 		        	<IndexRoute component={Home}/>
 		        	<Route path="/login" component={Login}/>
 		        	<Route path="/register" component={Register}/>
+		        	<Route path="/auction/:auctionId" component={AuctionItem}/>
 		        	<Route path="/search/:term?category=:category" component={Search}/>
 		        </Route>
 		</Router>

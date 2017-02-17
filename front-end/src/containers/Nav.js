@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, browserHistory} from 'react-router';
+import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import '../styles.css';
 
@@ -14,7 +14,7 @@ class Nav extends Component {
 			var logout = "Logout";
 			var login = '';
 			var register = '';
-		}else if(!this.props.navResponse.token){
+		}else{
 			welcomeMessage = ""
 			account = '';
 			logout = '';

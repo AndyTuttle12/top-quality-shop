@@ -33,14 +33,18 @@ class Login extends Component{
 			message = "";
 		}
 		return(
-			<div>
+			<div className="login-area">
 				<h1>Login</h1>
 				<form onSubmit={this.loginSubmit}>
 					<h3 className='success'>{message}</h3>
-					<input id="login-username" type="text" className="form-control" name="username" placeholder="User Name" />                                        
-					<input id="login-password" type="password" className="form-control" name="password" placeholder="Password" />
-					<input id="login-remember" type="checkbox" name="remember" defaultValue={1} />
-					<Link to="/register">Create Account</Link>
+					<input id="login-username" type="text" className="login-input form-control" name="username" placeholder="User Name" />
+					<br/>                                     
+					<input id="login-password" type="password" className="login-input form-control" name="password" placeholder="Password" />
+					<br/><br/>
+					<input id="login-remember" type="checkbox" name="remember" defaultValue={1} /><label className="check-label" htmlFor="login-remember" ></label>Keep me logged in.
+					<br/><br/>
+					Don&#39;t have an account? <Link to="/register">Create One Here</Link>
+					<br/><br/>
 					<button id="login" type="submit" className="login-button">Login</button>
 				</form>
 			</div>

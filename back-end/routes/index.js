@@ -30,6 +30,14 @@ router.get('/getHomeAuctions', (req, res, next)=>{
 	// res.render('index', { title: 'Express' });
 });
 
+router.get('/getAuctionItem/:auctionId', (req, res, next)=>{
+	var theAuctionId = req.params.auctionId;
+	var getAuctionQuery = "SELECT * FROM auctions WHERE id = ?";
+	connection.query(getAuctionQuery,[theAuctionId],(error, results, fields)=>{
+		res.json(results);
+	});
+});
+
 router.post('/register', (req, res, next)=>{
 	console.log(req.body);
 	checkDupeUserQuery = "SELECT * FROM users WHERE username = ?";

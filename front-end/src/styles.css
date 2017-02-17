@@ -1,12 +1,13 @@
 /* line 6, ../compass/sass/layout/_layout.scss */
 html {
   color: #000;
+  background-color: #eee;
 }
-/* line 8, ../compass/sass/layout/_layout.scss */
+/* line 9, ../compass/sass/layout/_layout.scss */
 html .App {
   color: #000;
 }
-/* line 10, ../compass/sass/layout/_layout.scss */
+/* line 11, ../compass/sass/layout/_layout.scss */
 html .App .App-body {
   color: #000;
   height: auto;
@@ -173,4 +174,80 @@ html .App .App-body {
 /* line 32, ../compass/sass/views/_auction.scss */
 .auction-content .auction-details .price-info .buy-now {
   margin: auto;
+}
+
+/* line 1, ../compass/sass/views/_login.scss */
+.login-area {
+  padding: 20px;
+  width: 65%;
+  margin: 20px auto;
+  text-align: center;
+  background-color: #fff;
+}
+/* line 7, ../compass/sass/views/_login.scss */
+.login-area .login-input {
+  width: 80%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+/* line 15, ../compass/sass/views/_login.scss */
+.login-area .login-input:focus {
+  outline-style: none;
+}
+/* line 19, ../compass/sass/views/_login.scss */
+.login-area [type="checkbox"]:not(:checked),
+.login-area [type="checkbox"]:checked {
+  position: relative;
+  left: -9999px;
+}
+/* line 24, ../compass/sass/views/_login.scss */
+.login-area [type="checkbox"]:not(:checked) + label,
+.login-area [type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+/* line 31, ../compass/sass/views/_login.scss */
+.login-area [type="checkbox"]:checked + label {
+  background-image: url("/check.png");
+  background-position: center;
+  background-size: contain;
+}
+/* line 36, ../compass/sass/views/_login.scss */
+.login-area .check-label {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #eee;
+  border-radius: 5px;
+}
+/* line 42, ../compass/sass/views/_login.scss */
+.login-area a {
+  color: #444;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 46, ../compass/sass/views/_login.scss */
+.login-area a:hover, .login-area a:active {
+  text-decoration: underline;
+}
+/* line 50, ../compass/sass/views/_login.scss */
+.login-area .login-button {
+  width: 90px;
+  height: 50px;
+  line-height: 40px;
+  font-size: 20px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+/* line 59, ../compass/sass/views/_login.scss */
+.login-area .login-button:hover, .login-area .login-button:active {
+  background-color: #ddd;
+  color: #000;
 }
