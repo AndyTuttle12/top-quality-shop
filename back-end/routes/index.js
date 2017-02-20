@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var config = require('../config/config.js');
 var randToken = require('rand-token');
+var stripe = require('stripe')("pk_test_atWWO72ZKthjSMxvTOyvcR8Q");
 var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: config.host,
@@ -123,5 +124,21 @@ router.post('/login', (req, res, next)=>{
 		}
 	})
 })
+
+router.post('/stripe', (req, res, next)=>{
+	stripe.charges.create({
+		amount: req.body.amount,
+		currency: 'usd',
+		source: req.body.stripeToken,
+		description: "Charge for A@A.com",
+	}, function(err, charge){
+		if(err){
+			res.json({msg:'errorProcessing'})
+		}else{
+			res.json({msg:'paymentSuccess'})
+		}
+	}
+	});
+});
 
 module.exports = router;

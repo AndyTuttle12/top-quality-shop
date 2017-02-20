@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import GetAuctionAction from '../actions/AuctionItemAction';
 import SubmitBidAction from '../actions/SubmitBidAction';
+import $ from 'jquery';
 
 class AuctionItem extends Component{
 	constructor(props) {
 		super(props);
 		this.submitBid = this.submitBid.bind(this);
+		this.makePayment = this.makePayment.bind(this);
 	}
 
 	componentDidMount() {
@@ -33,6 +35,35 @@ class AuctionItem extends Component{
 				this.props.submitBidToExpress(bidAmount, auctionItem.id, this.props.userToken)
 			}
 		}
+	}
+
+	makePayment(){
+		console.log('test');
+		var handler = window.StripeCheckout.configure({
+			key: 'pk_test_atWWO72ZKthjSMxvTOyvcR8Q',
+			locale: 'auto',
+			token: function(stripeToken){
+				console.log(stripeToken);
+				var theData = {
+					amount: 10 * 100,
+					stripeToken: stripeToken.id,
+					token: this.props.userToken
+				}
+				$.ajax({
+					method: 'POST',
+					url: 'http://localhost:3000/stripe',
+					data: theData
+				}).done((data)=>{
+					console.log(data);
+				});
+			}
+		});
+		handler.open({
+			name: "Buy Items",
+			description: "Make payment",
+			amount: 10 * 100,
+			image: '/TQS.png'
+		})
 	}
 
 	render(){
@@ -61,6 +92,7 @@ class AuctionItem extends Component{
 							<input type="number" placeholder="Enter your bid" />
 							<button type="submit">Bid</button>
 						</form>
+						<button className="bt btn-primary" onClick={this.makePayment}>Pay Here</button>
 					</div>
 				</div>
 			</div>
